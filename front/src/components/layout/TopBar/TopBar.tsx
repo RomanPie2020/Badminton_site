@@ -1,8 +1,7 @@
-import React from 'react'
-import SearchInput from "../../ui/SearchInput/SearchInput"
+import { Outlet } from "react-router-dom";
+import { ILogButton, ILogo } from "../../../shared/interfaces/models";
 import LogButton from "../../ui/LogButton/LogButton";
-import {ILogButton} from "../../../shared/interfaces/models";
-import {Link, Outlet} from "react-router-dom";
+import Logo from "../Logo";
 
 // const button: ILogButton = {
 //   title: 'click me',
@@ -12,33 +11,35 @@ import {Link, Outlet} from "react-router-dom";
 //   height: 'h-10'
 // }
 
-
 const logButtonProps: ILogButton = {
-  title: 'Login',
+  title: "Login",
   to: "/login",
-  styles: 'log-button mt-10 ml-10',
-}
+  styles: "log-button mt-10 ml-10 text-xl text-center rounded-xl ",
+};
 
 const regButtonProps: ILogButton = {
-  title: 'Sign up',
+  title: "Sign up",
   to: "/signup",
-  styles: 'reg-button mt-10 ml-10',
-}
+  styles: "reg-button mt-10 ml-10 text-xl text-center rounded-xl ",
+};
+
+const logo: ILogo = {
+  title: "BadmiLearn",
+};
 
 function TopBar() {
   return (
     <>
-      <div className="flex fixed top-0 w-full bg-[#282828]">
-        <Link className="text-white pt-10 pb-10 pl-20 bg-logo bg-no-repeat bg-left" to="/">
-          QuickPaste
-        </Link>
-        <SearchInput/>
-        <LogButton button={logButtonProps}/>
-        <LogButton button={regButtonProps}/>
+      <div className="fixed top-0 z-50 flex w-full justify-between bg-[#282828] px-10">
+        <Logo logo={logo} />
+        <div className="flex">
+          <LogButton button={logButtonProps} />
+          <LogButton button={regButtonProps} />
+        </div>
       </div>
-      <Outlet/>
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default TopBar
+export default TopBar;

@@ -1,4 +1,9 @@
 // topBar
+// logo
+
+export interface ILogo {
+	title: string
+}
 export interface ILogButton {
 	title: string
 	styles: string
@@ -50,4 +55,11 @@ export interface IRequestSignUp {
 	email: string
 	username: string
 	password: string
+}
+
+// Card3d
+export interface ICard3d {
+	title: string
+	description: string
+	image: string
 }
